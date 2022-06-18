@@ -25,9 +25,11 @@ const weatherApiRootUrl = 'https://api.openweathermap.org';
 
 // function for searccity
 function searchCity (event) {
+    // Preventing the button from trying to submit the form
     event.preventDefault()
     let city = searchCityInput.val().trim()
     let API = weatherApiRootUrl + "/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey
+    
     fetch(API)
     .then(function(result){
         return result.json()
@@ -57,11 +59,11 @@ function getWeather (data){
 // render current weather
 function renderCurrentWeather (city,data) {
     let temp = data.current.temp
-    let heading = $("<h3>")
+    let heading = $("#city")
     heading.text (city)
-    let tempEl = $("<p>")
+    let tempEl = $("#currentTemp")
     tempEl.text (temp)
-    currentWeatherEL.append(heading,tempEl)
+    // currentWeatherEL.append(heading,tempEl)
 
 }
 
