@@ -50,15 +50,18 @@
         })
     }
     
+
     function renderCurrentWeather(city,data) {
         
             let   = data.current 
             let heading = $("#city")
             heading.text (city)
-            
+           
+         
             for (var i = 0; i < 6; i++) {
                 var temp = $(`#temp${i + 1}`)
                 temp.text("Temp:" + data.daily[i].temp.max)
             }
     
     }
+ 
