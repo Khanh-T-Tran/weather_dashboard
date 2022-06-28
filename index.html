@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +11,14 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>weather dashboard</title>
 </head>
+
 <body>
   <header>weather dashboard</header>
   <main>
     <div class="searchCity">
       <form class="row g-3">
         <div class="col-auto">
-          <label for="staticEmail2" class="visually-hidden">Email</label>
+          
           <input type="text" readonly class="form-control-plaintext" value="Search for a City:">
         </div>
         <div class="col-auto">
@@ -25,82 +27,97 @@
         </div>
         <div class="col-auto">
           <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Search</button>
-        
+
         </div>
-        <hr>
-        <div id="searchArea"></div>
+        
+
+        <div id="searchHistory">
+          <p>Search History</p>
+        </div>
       </form>
 
-
-      <!-- <div id="searchForm">
-        <h4> City: </h4> 
-        <input type="text" id="searchTerm">
-        <button id="searchBtn">Search</button>
-      </div>
-      <hr>
-      <div id="buttonTerm"></div> -->
     </div>
 
-   
 
-    
-        
-    <div class="currentWeather">
+
+
+
+    <div id="currentWeather">
       <div id="current1">
-        <h2 id="city">City</h2>
+        <h2 id="city">City (currentDate)</h2>
         <p id="temp1">Temp</p>
         <p id="wind1">Wind</p>
         <p id="humidity1">Humidity</p>
         <p id="uv1">UV index</p>
       </div>
 
-      <div id="forecastDiv">
-        
-        <div class="weatherCard" id="weather2">
-          <h2 id="city">City</h2>
-          <p id="temp2">Temp</p>
-          <p id="wind2">Wind</p>
-          <p id="humidity2">Humidity</p>
-          <p id="uv2">UV index</p>
-        </div>        
-        
-        <div class="weatherCard" id="weather3">
-          <h2 id="city">City</h2>
-          <p id="temp3">Temp</p>
-          <p id="wind3">Wind</p>
-          <p id="humidity3">Humidity</p>
-          <p id="uv3">UV index</p>
+      <!-- cards show forecast weathers -->
+      <!-- <div class="row row-cols-1 row-cols-md-3 g-4" id="forecastDiv"> -->
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="forecastDiv">
+          <div class="col col-lg-2">
+            <div class="card h-100">
+              <div class="card-header">Date2</div>
+              <div class="card-body">
+                <p id="temp2">Temp</p>
+                <p id="wind2">Wind</p>
+                <p id="humidity2">Humidity</p>
+                <p id="uv2">UV index</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-2">
+            <div class="card h-100">
+              <div class="card-header">Date3</div>
+              <div class="card-body">
+                <p id="temp3">Temp</p>
+                <p id="wind3">Wind</p>
+                <p id="humidity3">Humidity</p>
+                <p id="uv3">UV index</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-2">
+            <div class="card h-100">
+              <div class="card-header">Date4</div>
+              <div class="card-body">
+                <p id="temp4">Temp</p>
+                <p id="wind4">Wind</p>
+                <p id="humidity4">Humidity</p>
+                <p id="uv4">UV index</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-2">
+            <div class="card h-100">
+              <div class="card-header">Date5</div>
+              <div class="card-body">
+                <p id="temp5">Temp</p>
+                <p id="wind5">Wind</p>
+                <p id="humidity5">Humidity</p>
+                <p id="uv5">UV index</p>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-2">
+            <div class="card h-100">
+              <div class="card-header">Date6</div>
+              <div class="card-body">
+                <p id="temp6">Temp</p>
+                <p id="wind6">Wind</p>
+                <p id="humidity6">Humidity</p>
+                <p id="uv6">UV index</p>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="weatherCard" id="weather4">
-          <h2 id="city">City</h2>
-          <p id="temp4">Temp</p>
-          <p id="wind4">Wind</p>
-          <p id="humidity4">Humidity</p>
-          <p id="uv4">UV index</p>
-        </div>
-        
-        <div class="weatherCard" id="weather5">
-          <h2 id="city">City</h2>
-          <p id="temp5">Temp</p>
-          <p id="wind5">Wind</p>
-          <p id="humidity5">Humidity</p>
-          <p id="uv5">UV index</p>
-        </div>
-        
-        <div class="weatherCard" id="weather6">
-          <h2 id="city">City</h2>
-          <p id="temp6">Temp</p>
-          <p id="wind6">Wind</p>
-          <p id="humidity6">Humidity</p>
-          <p id="uv6">UV index</p>
-        </div>
       </div>
     </div>
   </main>
 
-    <!-- Jquery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
@@ -108,4 +125,5 @@
   <!-- JScript file -->
   <script src="./assets/jscript/script.js"></script>
 </body>
+
 </html>

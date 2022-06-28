@@ -12,7 +12,7 @@
 
 
     
-    const apiKey = '218bd26d3855488a6e6abc9f6a2091c0';
+    const apiKey = 'd1e2d0763204896fd894698f5c6e27ee';
     const searchBtn = $("#searchBtn");
     const weatherApiRootUrl = 'https://api.openweathermap.org';
     const searchCityInput = $("#searchTerm")
@@ -56,11 +56,13 @@
             let   = data.current 
             let heading = $("#city")
             heading.text (city)
+
+
            
          
             for (var i = 0; i < 6; i++) {
                 var temp = $(`#temp${i + 1}`)
-                temp.text("Temp:" + data.daily[i].temp.max)
+                temp.text("Temp: " + data.daily[i].temp.max)
             }
     
     }

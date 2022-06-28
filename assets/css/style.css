@@ -1,13 +1,13 @@
 .searchCity{
-  background-color: aquamarine;
+  background-color: rgb(195, 255, 235);
   float: left;
   height: 100vh;
   width: 25%;
   
 }
 
-.currentWeather {
-  background-color: cornflowerblue;
+#currentWeather {
+  background-color: rgb(195, 255, 235);
   float: left;
   height: 100vh;
   width: 75%;
@@ -15,7 +15,7 @@
 }
 
 #forecastDiv {
-  background-color: bisque;
+  /* background-color:rgb(26, 86, 250); */
   display: flex; 
 }
 
