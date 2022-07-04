@@ -17,9 +17,8 @@
     const weatherApiRootUrl = 'https://api.openweathermap.org';
     const searchCityInput = $("#searchTerm")
     
-    searchBtn.on("click", searchCity)
+// function get city data from API 
     function searchCity(event) {
-        console.log("weather")
         event.preventDefault()
         let city = searchCityInput.val().trim()
         let API = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey
@@ -45,7 +44,7 @@
             return result.json()
         })
         .then(function(data){
-            console.log(data);
+            // console.log(data);
             renderCurrentWeather (city,data)
         })
     }
@@ -56,14 +55,10 @@
             let   = data.current 
             let heading = $("#city")
             heading.text (city)
-
-
-           
-         
-            for (var i = 0; i < 6; i++) {
-                var temp = $(`#temp${i + 1}`)
-                temp.text("Temp: " + data.daily[i].temp.max)
-            }
+            var temp = $(`#temp`)
+                temp.text("Temp: " + data.current.temp)
+            
     
     }
  
+    searchBtn.on("click", searchCity)
