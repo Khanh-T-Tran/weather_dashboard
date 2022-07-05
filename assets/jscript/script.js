@@ -15,7 +15,7 @@
     const apiKey = 'd1e2d0763204896fd894698f5c6e27ee';
     const searchBtn = $("#searchBtn");
     const weatherApiRootUrl = 'https://api.openweathermap.org';
-    const searchCityInput = $("#searchTerm")
+    const searchCityInput = $("#searchCityInput")
     
 // function get city data from API 
     function searchCity(event) {
@@ -44,7 +44,7 @@
             return result.json()
         })
         .then(function(data){
-            // console.log(data);
+            console.log(data);
             renderCurrentWeather (city,data)
         })
     }
@@ -56,9 +56,24 @@
             let heading = $("#city")
             heading.text (city)
             var temp = $(`#temp`)
-                temp.text("Temp: " + data.current.temp)
-            
+            var wind = $(`#wind`)
+            var humidity = $(`#humidity`)
+            var uvi = $(`#uvi`)
+            temp.text("Temp: " + data.current.temp)
+            wind.text("Wind: " + data.current.wind_speed)
+            humidity.text("Humidity: " + data.current.humidity)
+            uvi.text("UV Index: " + data.current.uvi)
     
     }
- 
+  
+    function renderForecastWeather(city,data){
+        
+        let   = data.daily
+        console.log("12345");
+        for (var i = 0; i < 6; i++) {
+            var tempFuture = $(`#tempFuture${i + 1}`)
+            tempFuture.text("Temp: " + data.daily[i].temp.max)
+            };
+        }
+        
     searchBtn.on("click", searchCity)
