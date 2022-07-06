@@ -46,6 +46,7 @@
         .then(function(data){
             console.log(data);
             renderCurrentWeather (city,data)
+            renderForecastWeather(city,data)
         })
     }
     
@@ -68,12 +69,19 @@
   
     function renderForecastWeather(city,data){
         
-        let   = data.daily
-        console.log("12345");
+        // let   = data.daily
+        console.log(data.daily);
         for (var i = 0; i < 6; i++) {
             var tempFuture = $(`#tempFuture${i + 1}`)
+            var windFuture = $(`#windFuture${i + 1}`)
+            var humidityFuture = $(`#humidityFuture${i + 1}`)
+            var uviFuture = $(`#uviFuture${i + 1}`)
             tempFuture.text("Temp: " + data.daily[i].temp.max)
+            windFuture.text("Wind Speed: " + data.daily[i].wind_speed)
+            humidityFuture.text("Humidity: " + data.daily[i].humidity)
+            uviFuture.text("Temp: " + data.daily[i].uvi)
+
             };
-        }
+         }
         
     searchBtn.on("click", searchCity)
