@@ -33,6 +33,7 @@
             console.log(data);
             getWeather(data[0]);
         })
+        
     }
     
     function getWeather(data) {
@@ -53,10 +54,11 @@
     
 
     function renderCurrentWeather(city,data) {
-        
+            var weatherIcon = `<img src="http://openweathermap.org/img/w/${data.current.weather[0].icon}.png">` 
             let   = data.current 
             let heading = $("#city")
             heading.text (city + " " + today)
+            heading.append(weatherIcon)
             var temp = $(`#temp`)
             var wind = $(`#wind`)
             var humidity = $(`#humidity`)
@@ -83,22 +85,20 @@
   
     function renderForecastWeather(city,data){
         
-        // let   = data.daily
+        
         console.log(data.daily);
         for (var i = 0; i < 6; i++) {
             var dateString = moment.unix(data.daily[i + 1].dt).format("MM/DD/YYYY");
-            var weatherIcon = `<img src="http://openweathermap.org/img/wn/${data.daily[i + 1].weather[0].icon}@2x.png">
-            `
-
+            var weatherIcon = `<img src="http://openweathermap.org/img/w/${data.daily[i + 1].weather[0].icon}.png">` 
             var tempFuture = $(`#tempFuture${i + 1}`)
             var windFuture = $(`#windFuture${i + 1}`)
             var humidityFuture = $(`#humidityFuture${i + 1}`)
-            var uviFuture = $(`#uviFuture${i + 1}`)
             var futureDate = $(`#futureDate${i + 1}`)
+
             tempFuture.text("Temp: " + data.daily[i].temp.max)
             windFuture.text("Wind Speed: " + data.daily[i].wind_speed)
             humidityFuture.text("Humidity: " + data.daily[i].humidity)
-            uviFuture.text("Temp: " + data.daily[i].uvi)
+            
             futureDate.text("Date: " + dateString)
             futureDate.append(weatherIcon)
     
@@ -107,4 +107,4 @@
 
 
         
-    searchBtn.on("click", searchCity)
+    searchBtn.on("click", searchCity) 
