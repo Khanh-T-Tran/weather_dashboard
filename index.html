@@ -48,7 +48,8 @@
         <p id="temp">Temp</p>
         <p id="wind">Wind</p>
         <p id="humidity">Humidity</p>
-        <p id="uvi">UV index</p>
+        <div>UV Index: <button class="btn" id="uvi"></button></div>
+        
       </div>
 
       <!-- cards show forecast weathers -->
@@ -56,7 +57,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4" id="forecastDiv">
           <div class="col col-lg-2">
             <div class="card h-100">
-              <div class="card-header">Date2</div>
+              <div id="futureDate1" class="card-header">Date2</div>
               <div class="card-body">
                 <p id="tempFuture1">Temp</p>
                 <p id="windFuture1">Wind</p>
@@ -67,7 +68,7 @@
           </div>
           <div class="col col-lg-2">
             <div class="card h-100">
-              <div class="card-header">Date3</div>
+              <div id="futureDate2" class="card-header">Date3</div>
               <div class="card-body">
                 <p id="tempFuture2">Temp</p>
                 <p id="windFuture2">Wind</p>
@@ -78,7 +79,7 @@
           </div>
           <div class="col col-lg-2">
             <div class="card h-100">
-              <div class="card-header">Date4</div>
+              <div id="futureDate3" class="card-header">Date4</div>
               <div class="card-body">
                 <p id="tempFuture3">Temp</p>
                 <p id="windFuture3">Wind</p>
@@ -89,7 +90,7 @@
           </div>
           <div class="col col-lg-2">
             <div class="card h-100">
-              <div class="card-header">Date5</div>
+              <div id="futureDate4" class="card-header">Date5</div>
               <div class="card-body">
                 <p id="tempFuture4">Temp</p>
                 <p id="windFuture4">Wind</p>
@@ -100,7 +101,7 @@
           </div>
           <div class="col col-lg-2">
             <div class="card h-100">
-              <div class="card-header">Date6</div>
+              <div id="futureDate5" class="card-header">Date6</div>
               <div class="card-body">
                 <p id="tempFuture5">Temp</p>
                 <p id="windFuture5">Wind</p>
@@ -121,7 +122,8 @@
 
   <!-- Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-
+  <!-- Moment -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <!-- JScript file -->
   <script src="./assets/jscript/script.js"></script>
 </body>
