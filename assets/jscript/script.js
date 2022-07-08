@@ -17,7 +17,10 @@
     const weatherApiRootUrl = 'https://api.openweathermap.org';
     const searchCityInput = $("#searchCityInput")
     var today = moment().format('L');
-    
+    var cityArray = JSON.parse(localStorage.getItem("city")) || [] ;
+    console.log(cityArray)
+    const searchHistory = $("#searchHistory");
+
 // function get city data from API 
     function searchCity(event) {
         event.preventDefault()
@@ -30,11 +33,24 @@
             return result.json()
         })
         .then(function(data){
-            console.log(data);
+            // console.log(data);
+            cityArray.push(data[0].name)
+            localStorage.setItem("city", JSON.stringify(cityArray));
+            renderSearchCity ();
             getWeather(data[0]);
         })
         
     }
+
+    function renderSearchCity () {
+        // console.log(cityArray);
+        for (let i = 0; i < cityArray.length; i++) {
+            console.log(cityArray[i]);
+            
+        }
+    }
+       
+    
     
     function getWeather(data) {
         let lat = data.lat
@@ -46,7 +62,7 @@
             return result.json()
         })
         .then(function(data){
-            console.log(data);
+            // console.log(data);
             renderCurrentWeather (city,data)
             renderForecastWeather(city,data)
         })
@@ -86,7 +102,7 @@
     function renderForecastWeather(city,data){
         
         
-        console.log(data.daily);
+        // console.log(data.daily);
         for (var i = 0; i < 6; i++) {
             var dateString = moment.unix(data.daily[i + 1].dt).format("MM/DD/YYYY");
             var weatherIcon = `<img src="http://openweathermap.org/img/w/${data.daily[i + 1].weather[0].icon}.png">` 
