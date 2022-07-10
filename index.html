@@ -29,17 +29,31 @@
           <input type="input" class="form-control" id="searchCityInput" placeholder="City">
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Search</button>
+          <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Search</button>
 
         </div>
         
 
         <div id="searchHistory">
           <p>Search History</p> 
-          
+          <button class="btn btn-secondary btn-block" type="button" id="clear-history">Clear history</button>
+        </div>
+        
+       
+        <div class="row mt-3">
+          <div class="col-12">
+
+              <ul id="searchHistory" class="list-group">
+                  <!-- append li here li class="list-group-item"-->
+              </ul>
+
+          </div>
+      </div>
+     
+    </div>
         </div>
       </form>
-
+      
     </div>
 
 

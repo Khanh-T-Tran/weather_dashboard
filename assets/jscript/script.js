@@ -17,8 +17,8 @@
     const weatherApiRootUrl = 'https://api.openweathermap.org';
     const searchCityInput = $("#searchCityInput")
     var today = moment().format('L');
-    var cityArray = JSON.parse(localStorage.getItem("city")) || [] ;
-    console.log(cityArray)
+    // var cityArray = JSON.parse(localStorage.getItem("city")) || [] ;
+    var searchHistoryList = [];
     const searchHistory = $("#searchHistory");
 
 // function get city data from API 
@@ -26,29 +26,34 @@
         event.preventDefault()
         let city = searchCityInput.val().trim()
         let API = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey
-        
+        // console.log(city);
     // Fetching the info from URL     
         fetch(API)
         .then(function(result){
             return result.json()
         })
+        
         .then(function(data){
             // console.log(data);
-            cityArray.push(data[0].name)
-            localStorage.setItem("city", JSON.stringify(cityArray));
-            renderSearchCity ();
+            // cityArray.push(data[0].name)
+            if (!searchHistoryList.includes(city)) {
+                searchHistoryList.push(city);
+                var searchedCity = $(`
+                <button type="button" class="btn btn-info list-group-item" id="searchCityList">${city}</button>
+                    `);
+                $("#searchHistory").append(searchedCity);
+            };
+            localStorage.setItem("city", JSON.stringify(searchHistoryList));
+            
+            console.log(searchHistoryList);
             getWeather(data[0]);
-        })
+           
+        });
         
     }
 
-    function renderSearchCity () {
-        // console.log(cityArray);
-        for (let i = 0; i < cityArray.length; i++) {
-            console.log(cityArray[i]);
-            
-        }
-    }
+    
+    
        
     
     
@@ -121,6 +126,14 @@
             };
          }
 
-
-        
+function renderSearchHistory {
+         for (let i = 0, i < searchHistoryList.length, i++) {
+            
+         }
+         $("#searchCityList").on("click", function() {
+                var cityList = 
+                renderCurrentWeather (city,data)
+                renderForecastWeather(city,data)
+            });
+        }  
     searchBtn.on("click", searchCity) 
