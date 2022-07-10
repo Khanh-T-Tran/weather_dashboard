@@ -126,14 +126,14 @@
             };
          }
 
-function renderSearchHistory {
-         for (let i = 0, i < searchHistoryList.length, i++) {
+function renderSearchHistory () {
+         for (let i = 0; i < searchHistoryList.length; i++) {
             
-         }
+         
          $("#searchCityList").on("click", function() {
                 var cityList = 
                 renderCurrentWeather (city,data)
                 renderForecastWeather(city,data)
             });
-        }  
+} }
     searchBtn.on("click", searchCity) 
