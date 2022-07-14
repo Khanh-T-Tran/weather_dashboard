@@ -2,16 +2,17 @@ body {
 margin: 5%;
 padding: 10px;
 }
+
 #header {
   text-align: center;
   background-color: #164eb1f2;
 }
+
 .searchCity{
   background-color: #0d6efd26;
   float: left;
   height: 100vh;
-  width: 23%;
-  
+  width: 25%;
 }
 
 #currentWeatherDiv {
@@ -26,14 +27,11 @@ padding: 10px;
   float: right;
   height: 100vh;
   width: 75%;
- 
-
 }
 
 #forecastDiv {
   background-color:rgb(13, 49, 148);
   color: aliceblue;
-  /* display: flex;  */
 }
 
 .weatherCard {
@@ -50,13 +48,5 @@ padding: 10px;
 }
 
 #searchHistory {
-  font-size: 25px;
-  
-}
-.searchCity {
-  width: 25%;
-  border-radius: 10px;
-  border-color: black;
-  border-width: 10px;
-
+  font-size: 25px; 
 }
