@@ -45,7 +45,8 @@
             };
             localStorage.setItem("city", JSON.stringify(searchHistoryList));
             
-            console.log(searchHistoryList);
+            // console.log(searchHistoryList);
+
             getWeather(data[0]);
            
         });
@@ -62,12 +63,13 @@
         let lon = data.lon
         let city = data.name
         let API = "https://api.openweathermap.org" + "/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=" + apiKey
+        //  console.log(API);
         fetch(API)
         .then(function(result){
             return result.json()
         })
         .then(function(data){
-            // console.log(data);
+           
             renderCurrentWeather (city,data)
             renderForecastWeather(city,data)
         })
@@ -76,7 +78,8 @@
 
     function renderCurrentWeather(city,data) {
             var weatherIcon = `<img src="http://openweathermap.org/img/w/${data.current.weather[0].icon}.png">` 
-            let   = data.current 
+            // let   = data.current 
+        
             let heading = $("#city")
             heading.text (city + " " + today)
             heading.append(weatherIcon)
@@ -89,7 +92,7 @@
             humidity.text("Humidity: " + data.current.humidity)
             uvi.text(data.current.uvi)
             uviBtn(data.current.uvi);
-    
+    // console.log(data);
     }
 
     function uviBtn(uvi) {
@@ -126,14 +129,24 @@
             };
          }
 
-function renderSearchHistory () {
-         for (let i = 0; i < searchHistoryList.length; i++) {
-            
-         
-         $("#searchCityList").on("click", function() {
-                var cityList = 
-                renderCurrentWeather (city,data)
-                renderForecastWeather(city,data)
-            });
-} }
-    searchBtn.on("click", searchCity) 
+
+$(document).on("click", ".list-group-item", function() {
+    var listCity = $(this).text();
+    
+    let API = "https://api.openweathermap.org/geo/1.0/direct?q=" + listCity + "&limit=5&appid=" + apiKey
+    // console.log(API);
+// Fetching the info from URL     
+    fetch(API)
+    .then(function(result){
+        return result.json()
+    })
+
+    .then(data => {
+        // console.log(data);
+        getWeather(data[0])
+       
+    })
+   
+})
+    
+searchBtn.on("click", searchCity) 
