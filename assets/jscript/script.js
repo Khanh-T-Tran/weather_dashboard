@@ -23,7 +23,9 @@ function searchCity(event) {
             if (!searchHistoryList.includes(city)) {
                 searchHistoryList.push(city);
                 var searchedCity = $(`
-                <button type="button" class="btn btn-info list-group-item" id="searchCityList">${city}</button>
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-info" id="searchCityList">${city}</button>
+                </div>
                     `);
                 $("#searchHistory").append(searchedCity);
             };
@@ -103,7 +105,7 @@ function renderForecastWeather(city, data) {
 }
 
 // add even listener for history city buttons
-$(document).on("click", ".list-group-item", function () {
+$(document).on("click", "#searchCityList", function () {
     var listCity = $(this).text();
     let API = "https://api.openweathermap.org/geo/1.0/direct?q=" + listCity + "&limit=5&appid=" + apiKey
     // Fetching the info from URL     
